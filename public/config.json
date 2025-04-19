@@ -1,13 +1,57 @@
 {
-  "workflowApiVersion": "1.1",
-  "metaData": {
-    "icon": "images.png",
-    "category": "message"
-  },
-  "type": "REST",
-  "userInterfaces": {
-    "configInspector": {
-      "size": "medium"
-    }
+"workflowApiVersion": "1.1",
+"metaData": {
+  "category": "message"
+},
+"type": "REST",
+"lang": {
+  "en-US": {
+    "name": "Send Email on Weekday",
+    "description": "Checks if today is a weekday or weekend and decides whether to send emails."
   }
+},
+"arguments": {
+  "execute": {
+    "inArguments": [],
+    "outArguments": [
+      {
+        "sendEmail": "Boolean"
+      }
+    ],
+    "url": "https://weekday-checker-7c974993cfeb.herokuapp.com/execute",
+    "useJwt": true
+  }
+},
+
+"configurationArguments": {
+    "save": {
+        "url": "https://weekday-checker-7c974993cfeb.herokuapp.com/save",
+        "useJwt": true
+    },
+    "publish": {
+        "url": "https://weekday-checker-7c974993cfeb.herokuapp.com/publish",
+        "useJwt": true
+    },
+    "validate": {
+        "url": "https://weekday-checker-7c974993cfeb.herokuapp.com/validate",
+        "useJwt": true
+    }
+},
+"userInterfaces": {
+    "configModal": {
+        "height": 200,
+        "width": 300
+    }
+},
+"schema": {
+    "arguments": {
+    "execute": {
+        "inArguments": [],
+        "outArguments": [
+            {
+                "sendEmail": "Boolean"
+            }
+        ]
+        }
+    }
 }
